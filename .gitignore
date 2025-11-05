@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Scraper output
+nmme_data/
+
+# R
+.Rhistory
+.RData
+.Rproj.user
