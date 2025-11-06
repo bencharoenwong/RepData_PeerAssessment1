@@ -1,0 +1,45 @@
+# SEC Filing Delay Monitor - Requirements
+# ========================================
+
+# Core SEC API integration
+sec-api>=1.0.0
+
+# Optional dependencies for enhanced functionality
+# (uncomment as needed)
+
+# Data manipulation and analysis
+# pandas>=2.0.0
+# numpy>=1.24.0
+
+# Export to various formats
+# openpyxl>=3.1.0  # For Excel export
+# xlsxwriter>=3.1.0  # Alternative Excel writer
+
+# Scheduling and automation
+# schedule>=1.2.0  # For periodic monitoring
+# apscheduler>=3.10.0  # Advanced scheduling
+
+# Notifications
+# sendgrid>=6.11.0  # Email alerts
+# slack-sdk>=3.23.0  # Slack notifications
+# twilio>=8.10.0  # SMS alerts
+
+# Database storage
+# sqlalchemy>=2.0.0  # Database ORM
+# psycopg2-binary>=2.9.0  # PostgreSQL
+# pymongo>=4.6.0  # MongoDB
+
+# Web dashboard (if building a UI)
+# flask>=3.0.0
+# dash>=2.14.0
+# streamlit>=1.29.0
+
+# Testing
+# pytest>=7.4.0
+# pytest-cov>=4.1.0
+# pytest-mock>=3.12.0
+
+# Code quality
+# black>=23.12.0
+# flake8>=6.1.0
+# mypy>=1.7.0
