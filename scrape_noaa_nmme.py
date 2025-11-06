@@ -23,7 +23,8 @@ class NOAANMMEScraper:
             base_url: The base URL to scrape
             output_dir: Local directory to save files (default: nmme_data)
         """
-        self.base_url = base_url.rstrip('/')
+        # Ensure base_url has a trailing slash for proper urljoin behavior
+        self.base_url = base_url if base_url.endswith('/') else base_url + '/'
         self.output_dir = output_dir
         self.downloaded_files = 0
         self.failed_downloads = []
@@ -31,6 +32,23 @@ class NOAANMMEScraper:
         self.session.headers.update({
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
         })
+
+    def is_within_scope(self, url):
+        """
+        Check if a URL is within the base URL scope.
+
+        Args:
+            url: The URL to check
+
+        Returns:
+            True if URL is within scope, False otherwise
+        """
+        # Normalize URLs for comparison
+        url_normalized = url.rstrip('/')
+        base_normalized = self.base_url.rstrip('/')
+
+        # URL must start with base_url to be in scope
+        return url_normalized.startswith(base_normalized)
 
     def get_directory_listing(self, url):
         """
@@ -52,11 +70,17 @@ class NOAANMMEScraper:
             # Parse the directory listing
             for link in soup.find_all('a'):
                 href = link.get('href')
-                if not href or href == '../' or href.startswith('?'):
+                # Skip parent directory links, query params, and absolute paths to parent
+                if not href or href == '../' or href.startswith('?') or href.startswith('/'):
                     continue
 
                 # Build full URL
                 full_url = urljoin(url, href)
+
+                # IMPORTANT: Only include URLs within our base URL scope
+                # This prevents escaping to parent directories or root
+                if not self.is_within_scope(full_url):
+                    continue
 
                 # Check if it's a directory (ends with /)
                 is_directory = href.endswith('/')
