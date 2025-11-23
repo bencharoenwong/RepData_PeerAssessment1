@@ -1,0 +1,13 @@
+# SEC Accounting Changes Detector Dependencies
+
+# SEC API client for Python
+sec-api>=1.0.0
+
+# HTTP library for API requests
+requests>=2.31.0
+
+# JSON handling (built-in, but listed for completeness)
+# json (built-in)
+
+# Date/time handling (built-in)
+# datetime (built-in)
