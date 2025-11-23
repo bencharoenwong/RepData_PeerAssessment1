@@ -1,12 +1,12 @@
 MULTI-COMPANY ACCOUNTING CHANGES SCAN
 ================================================================================
 
-Generated: 2025-11-23 10:07:00
+Generated: 2025-11-23 10:29:44
 
-Companies scanned: 8
-Companies with findings: 8
-Total filings analyzed: 16
-Filings with findings: 16
+Companies scanned: 2
+Companies with findings: 2
+Total filings analyzed: 6
+Filings with findings: 6
 
 ================================================================================
 DETAILED FINDINGS
@@ -24,7 +24,7 @@ Keyword matches:
   - previously: previously, revenue
   - reclassification: reclassification, reclassified
   - restatement: recast
-  - segment_change: segment reporting, reportable segments
+  - segment_change: reportable segments, segment reporting
 
 
 10-Q filed 2025-08-27
@@ -33,7 +33,16 @@ URL: https://www.sec.gov/Archives/edgar/data/1045810/000104581025000209/nvda-202
 Keyword matches:
   - geographic_revenue: geographic revenue, billing location
   - reclassification: reclassification, reclassified
-  - segment_change: segment reporting, reportable segments
+  - segment_change: reportable segments, segment reporting
+
+
+10-Q filed 2025-05-28
+URL: https://www.sec.gov/Archives/edgar/data/1045810/000104581025000116/nvda-20250427.htm
+
+Keyword matches:
+  - geographic_revenue: geographic revenue, billing location
+  - reclassification: reclassification, reclassified
+  - segment_change: reportable segments, segment reporting
 
 
 AAPL
@@ -45,7 +54,7 @@ URL: https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-2025
 Keyword matches:
   - reclassification: reclassified
   - restatement: recast
-  - segment_change: segment reporting, reportable segments
+  - segment_change: reportable segments, segment reporting
 
 
 10-Q filed 2025-08-01
@@ -55,122 +64,9 @@ Keyword matches:
   - restatement: recast
 
 
-MSFT
---------------------------------------------------------------------------------
-
-10-Q filed 2025-10-29
-URL: https://www.sec.gov/Archives/edgar/data/789019/000119312525256321/msft-20250930.htm
+10-Q filed 2025-05-02
+URL: https://www.sec.gov/Archives/edgar/data/320193/000032019325000057/aapl-20250329.htm
 
 Keyword matches:
-  - reclassification: reclassification, reclassified
   - restatement: recast
-  - segment_change: reportable segments
-
-
-10-K filed 2025-07-30
-URL: https://www.sec.gov/Archives/edgar/data/789019/000095017025100235/msft-20250630.htm
-
-Keyword matches:
-  - reclassification: reclassification, reclassified
-  - restatement: recast
-  - segment_change: segment reporting, reportable segments
-
-
-GOOGL
---------------------------------------------------------------------------------
-
-10-Q filed 2021-10-26
-URL: https://www.sec.gov/Archives/edgar/data/1652044/000165204421000057/goog-20210930.htm
-
-Keyword matches:
-  - reclassification: reclassification, reclassified
-  - restatement: recast, restated
-
-
-10-Q filed 2021-07-27
-URL: https://www.sec.gov/Archives/edgar/data/1652044/000165204421000047/goog-20210630.htm
-
-Keyword matches:
-  - reclassification: reclassification, reclassified
-  - restatement: recast, restated
-
-
-AMZN
---------------------------------------------------------------------------------
-
-10-Q filed 2025-10-30
-URL: https://www.sec.gov/Archives/edgar/data/1018724/000101872425000123/amzn-20250930.htm
-
-Keyword matches:
-  - reclassification: reclassification, reclassified
-  - restatement: recast
-  - segment_change: reportable segments
-
-
-10-Q filed 2025-07-31
-URL: https://www.sec.gov/Archives/edgar/data/1018724/000101872425000086/amzn-20250630.htm
-
-Keyword matches:
-  - reclassification: reclassification, reclassified
-  - restatement: recast
-  - segment_change: reportable segments
-
-
-META
---------------------------------------------------------------------------------
-
-10-Q filed 2025-10-29
-URL: https://www.sec.gov/Archives/edgar/data/1326801/000162828025047240/meta-20250930.htm
-
-Keyword matches:
-  - reclassification: reclassification, reclassified
-  - segment_change: reportable segments
-
-
-10-Q filed 2025-07-30
-URL: https://www.sec.gov/Archives/edgar/data/1326801/000162828025036791/meta-20250630.htm
-
-Keyword matches:
-  - reclassification: reclassification, reclassified
-  - segment_change: reportable segments
-
-
-TSLA
---------------------------------------------------------------------------------
-
-10-Q filed 2025-10-22
-URL: https://www.sec.gov/Archives/edgar/data/1318605/000162828025045968/tsla-20250930.htm
-
-Keyword matches:
-  - previously: previously reported
-  - reclassification: reclassification, reclassified
-  - restatement: recast
-  - segment_change: segment reporting, reportable segments
-
-
-10-Q filed 2025-07-23
-URL: https://www.sec.gov/Archives/edgar/data/1318605/000162828025035806/tsla-20250630.htm
-
-Keyword matches:
-  - previously: previously reported
-  - reclassification: reclassification, reclassified
-  - restatement: recast
-  - segment_change: segment reporting, reportable segments
-
-
-NFLX
---------------------------------------------------------------------------------
-
-10-Q filed 2025-10-22
-URL: https://www.sec.gov/Archives/edgar/data/1065280/000106528025000406/nflx-20250930.htm
-
-Keyword matches:
-  - reclassification: reclassification, reclassified
-
-
-10-Q filed 2025-07-18
-URL: https://www.sec.gov/Archives/edgar/data/1065280/000106528025000323/nflx-20250630.htm
-
-Keyword matches:
-  - reclassification: reclassification, reclassified
 
