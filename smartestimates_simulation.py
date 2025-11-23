@@ -273,7 +273,12 @@ class SmartEstimateBuilder:
             weighted_errors.append(error * recency_weight)
             weights.append(recency_weight)
 
-        rmse = np.sqrt(np.sum(weighted_errors) / np.sum(weights))
+        # Calculate RMSE with safety checks
+        sum_weights = np.sum(weights)
+        if sum_weights == 0 or len(weighted_errors) == 0:
+            return 1.0  # Fallback to equal weight
+
+        rmse = np.sqrt(np.sum(weighted_errors) / sum_weights)
 
         # Convert RMSE to weight (inverse, with floor)
         weight = 1.0 / (rmse + 0.01)  # Add small constant to prevent division by zero
@@ -291,16 +296,22 @@ class SmartEstimateBuilder:
         if len(period_forecasts) == 0:
             return None
 
-        # Compute consensus (simple mean)
-        consensus = period_forecasts['forecast_eps'].mean()
+        # Compute consensus (simple mean), handling NaN values
+        consensus = period_forecasts['forecast_eps'].mean(skipna=True)
 
         # Decompose each forecast into industry and company components
         # Industry component = cross-sectional industry mean
         industry = period_forecasts['industry'].iloc[0]
-        industry_mean = forecasts_df[
+        industry_forecasts = forecasts_df[
             (forecasts_df['period'] == period) &
             (forecasts_df['industry'] == industry)
-        ]['forecast_eps'].mean()
+        ]['forecast_eps']
+
+        # Handle case where no industry forecasts exist
+        if len(industry_forecasts) == 0 or industry_forecasts.isna().all():
+            industry_mean = consensus  # Fallback to company consensus
+        else:
+            industry_mean = industry_forecasts.mean(skipna=True)
 
         period_forecasts['industry_component'] = industry_mean
         period_forecasts['company_deviation'] = period_forecasts['forecast_eps'] - industry_mean
@@ -324,9 +335,19 @@ class SmartEstimateBuilder:
         weights_industry = np.array(weights_industry)
         weights_company = np.array(weights_company)
 
-        # Normalize weights
-        weights_industry = weights_industry / weights_industry.sum()
-        weights_company = weights_company / weights_company.sum()
+        # Normalize weights with safety checks
+        sum_ind = weights_industry.sum()
+        sum_comp = weights_company.sum()
+
+        if sum_ind == 0:
+            weights_industry = np.ones_like(weights_industry) / len(weights_industry)
+        else:
+            weights_industry = weights_industry / sum_ind
+
+        if sum_comp == 0:
+            weights_company = np.ones_like(weights_company) / len(weights_company)
+        else:
+            weights_company = weights_company / sum_comp
 
         # Construct SmartEstimate
         smart_industry = np.sum(weights_industry * period_forecasts['industry_component'])
@@ -388,8 +409,8 @@ class PerformanceEvaluator:
                 results_df['error_smart'].mean()
             ],
             'Information_Coefficient': [
-                results_df[['consensus', 'true_eps']].corr().iloc[0, 1],
-                results_df[['smart_estimate', 'true_eps']].corr().iloc[0, 1]
+                results_df[['consensus', 'true_eps']].corr().iloc[0, 1] if len(results_df) >= 2 else np.nan,
+                results_df[['smart_estimate', 'true_eps']].corr().iloc[0, 1] if len(results_df) >= 2 else np.nan
             ]
         }
 
@@ -401,7 +422,11 @@ class PerformanceEvaluator:
             if metric == 'Information_Coefficient':
                 improvement[metric] = summary.loc['SmartEstimate', metric] - summary.loc['Consensus', metric]
             else:
-                improvement[metric] = (summary.loc['Consensus', metric] - summary.loc['SmartEstimate', metric]) / summary.loc['Consensus', metric] * 100
+                consensus_val = summary.loc['Consensus', metric]
+                if consensus_val == 0:
+                    improvement[metric] = np.nan
+                else:
+                    improvement[metric] = (consensus_val - summary.loc['SmartEstimate', metric]) / consensus_val * 100
 
         summary.loc['Improvement_%'] = improvement
 
@@ -625,11 +650,16 @@ def run_simulation(config: SimulationConfig = None) -> Tuple[pd.DataFrame, pd.Da
 
     # Diebold-Mariano test approximation
     diff = results_df['se_consensus'] - results_df['se_smart']
-    dm_stat = diff.mean() / (diff.std() / np.sqrt(len(diff)))
-    dm_pvalue = 2 * (1 - stats.norm.cdf(abs(dm_stat)))
-    print(f"\nDiebold-Mariano Test:")
-    print(f"  • DM statistic: {dm_stat:.4f}")
-    print(f"  • p-value: {dm_pvalue:.6f}")
+    std_diff = diff.std()
+
+    if std_diff == 0 or len(diff) == 0:
+        print(f"\nDiebold-Mariano Test: Cannot compute (zero variance or insufficient data)")
+    else:
+        dm_stat = diff.mean() / (std_diff / np.sqrt(len(diff)))
+        dm_pvalue = 2 * (1 - stats.norm.cdf(abs(dm_stat)))
+        print(f"\nDiebold-Mariano Test:")
+        print(f"  • DM statistic: {dm_stat:.4f}")
+        print(f"  • p-value: {dm_pvalue:.6f}")
 
     # Generate visualizations
     print("\n[6/6] Generating visualizations...")
