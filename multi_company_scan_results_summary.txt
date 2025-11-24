@@ -1,12 +1,12 @@
 MULTI-COMPANY ACCOUNTING CHANGES SCAN
 ================================================================================
 
-Generated: 2025-11-23 10:29:44
+Generated: 2025-11-24 09:41:07
 
-Companies scanned: 2
-Companies with findings: 2
-Total filings analyzed: 6
-Filings with findings: 6
+Companies scanned: 10
+Companies with findings: 8
+Total filings analyzed: 18
+Filings with findings: 15
 
 ================================================================================
 DETAILED FINDINGS
@@ -22,9 +22,9 @@ URL: https://www.sec.gov/Archives/edgar/data/1045810/000104581025000230/nvda-202
 Keyword matches:
   - geographic_revenue: geographic revenue, billing location
   - previously: previously, revenue
-  - reclassification: reclassification, reclassified
+  - reclassification: reclassified, reclassification
   - restatement: recast
-  - segment_change: reportable segments, segment reporting
+  - segment_change: segment reporting, reportable segments
 
 
 10-Q filed 2025-08-27
@@ -32,41 +32,147 @@ URL: https://www.sec.gov/Archives/edgar/data/1045810/000104581025000209/nvda-202
 
 Keyword matches:
   - geographic_revenue: geographic revenue, billing location
-  - reclassification: reclassification, reclassified
-  - segment_change: reportable segments, segment reporting
+  - reclassification: reclassified, reclassification
+  - segment_change: segment reporting, reportable segments
 
 
-10-Q filed 2025-05-28
-URL: https://www.sec.gov/Archives/edgar/data/1045810/000104581025000116/nvda-20250427.htm
-
-Keyword matches:
-  - geographic_revenue: geographic revenue, billing location
-  - reclassification: reclassification, reclassified
-  - segment_change: reportable segments, segment reporting
-
-
-AAPL
+AMD
 --------------------------------------------------------------------------------
 
-10-K filed 2025-10-31
-URL: https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm
+10-Q filed 2025-11-04
+URL: https://www.sec.gov/Archives/edgar/data/2488/000000248825000166/amd-20250927.htm
 
 Keyword matches:
   - reclassification: reclassified
-  - restatement: recast
-  - segment_change: reportable segments, segment reporting
+  - restatement: recast, restated
+  - segment_change: segment reporting, reportable segments
 
 
-10-Q filed 2025-08-01
-URL: https://www.sec.gov/Archives/edgar/data/320193/000032019325000073/aapl-20250628.htm
-
-Keyword matches:
-  - restatement: recast
-
-
-10-Q filed 2025-05-02
-URL: https://www.sec.gov/Archives/edgar/data/320193/000032019325000057/aapl-20250329.htm
+10-Q filed 2025-08-05
+URL: https://www.sec.gov/Archives/edgar/data/2488/000000248825000108/amd-20250628.htm
 
 Keyword matches:
+  - reclassification: reclassified
+  - restatement: recast, restated
+  - segment_change: segment reporting, reportable segments
+
+
+INTC
+--------------------------------------------------------------------------------
+No accounting change keywords found in recent filings.
+
+
+QCOM
+--------------------------------------------------------------------------------
+
+10-Q filed 2025-07-30
+URL: https://www.sec.gov/Archives/edgar/data/804328/000080432825000045/qcom-20250629.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+  - segment_change: segment reporting, reportable segments
+
+
+AVGO
+--------------------------------------------------------------------------------
+
+10-Q filed 2025-09-10
+URL: https://www.sec.gov/Archives/edgar/data/1730168/000173016825000098/avgo-20250803.htm
+
+Keyword matches:
+  - reclassification: reclassification
+  - segment_change: segment reporting, reportable segments
+
+
+10-Q filed 2025-06-11
+URL: https://www.sec.gov/Archives/edgar/data/1730168/000173016825000064/avgo-20250504.htm
+
+Keyword matches:
+  - reclassification: reclassification
+  - restatement: restated
+  - segment_change: segment reporting, reportable segments
+
+
+TXN
+--------------------------------------------------------------------------------
+
+10-Q filed 2025-10-23
+URL: https://www.sec.gov/Archives/edgar/data/97476/000009747625000060/txn-20250930.htm
+
+Keyword matches:
+  - reclassification: reclassified
+  - segment_change: segment reporting, reportable segments
+
+
+10-Q filed 2025-07-29
+URL: https://www.sec.gov/Archives/edgar/data/97476/000009747625000036/txn-20250630.htm
+
+Keyword matches:
+  - reclassification: reclassified
+  - segment_change: reportable segments
+
+
+NXPI
+--------------------------------------------------------------------------------
+
+10-Q filed 2025-10-28
+URL: https://www.sec.gov/Archives/edgar/data/1413447/000141344725000120/nxpi-20250928.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
   - restatement: recast
+  - segment_change: segment reporting
+
+
+10-Q filed 2025-07-24
+URL: https://www.sec.gov/Archives/edgar/data/1413447/000141344725000106/nxpi-20250629.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+  - restatement: recast
+  - segment_change: segment reporting
+
+
+MU
+--------------------------------------------------------------------------------
+
+10-K filed 2025-10-03
+URL: https://www.sec.gov/Archives/edgar/data/723125/000072312525000028/mu-20250828.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+  - restatement: recast
+  - segment_change: reportable segments
+
+
+10-Q filed 2025-06-25
+URL: https://www.sec.gov/Archives/edgar/data/723125/000072312525000021/mu-20250529.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+  - restatement: recast
+  - segment_change: segment reporting, reportable segments
+
+
+MRVL
+--------------------------------------------------------------------------------
+
+10-Q filed 2025-08-29
+URL: https://www.sec.gov/Archives/edgar/data/1835632/000183563225000189/mrvl-20250802.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+  - restatement: restated
+
+
+10-Q filed 2025-05-30
+URL: https://www.sec.gov/Archives/edgar/data/1835632/000183563225000117/mrvl-20250503.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+
+
+ASML
+--------------------------------------------------------------------------------
+No accounting change keywords found in recent filings.
 

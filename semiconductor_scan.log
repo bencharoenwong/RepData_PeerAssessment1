@@ -1,0 +1,331 @@
+
+Default sample companies:
+  1. NVDA
+  2. AAPL
+  3. MSFT
+  4. GOOGL
+  5. AMZN
+  6. META
+  7. TSLA
+  8. NFLX
+
+Options:
+1. Scan default sample companies (above)
+2. Enter custom list of tickers
+3. Quick test (just NVDA and AAPL)
+
+Enter choice (1-3): 
+Enter tickers separated by commas (e.g., NVDA,AAPL,MSFT): 
+Number of recent filings to check per company (default 3): 
+================================================================================
+MULTI-COMPANY ACCOUNTING CHANGES SCANNER
+================================================================================
+
+Companies to scan: NVDA, AMD, INTC, QCOM, AVGO, TXN, NXPI, MU, MRVL, ASML
+Filings per company: 2
+
+[1/10]
+
+================================================================================
+Scanning: NVDA
+================================================================================
+  Found 2 recent filings
+
+  [1/2] 10-Q - 2025-11-19
+      Extracting section...
+      ✓ Extracted 61,770 characters
+      ✓ Found 5 keyword categories!
+        - geographic_revenue: geographic revenue, billing location
+        - previously: previously, revenue
+        - reclassification: reclassified, reclassification
+        - restatement: recast
+        - segment_change: segment reporting, reportable segments
+
+  [2/2] 10-Q - 2025-08-27
+      Extracting section...
+      ✓ Extracted 59,490 characters
+      ✓ Found 3 keyword categories!
+        - geographic_revenue: geographic revenue, billing location
+        - reclassification: reclassified, reclassification
+        - segment_change: segment reporting, reportable segments
+
+[2/10]
+
+================================================================================
+Scanning: AMD
+================================================================================
+  Found 2 recent filings
+
+  [1/2] 10-Q - 2025-11-04
+      Extracting section...
+      ✓ Extracted 56,965 characters
+      ✓ Found 3 keyword categories!
+        - reclassification: reclassified
+        - restatement: recast, restated
+        - segment_change: segment reporting, reportable segments
+
+  [2/2] 10-Q - 2025-08-05
+      Extracting section...
+      ✓ Extracted 53,997 characters
+      ✓ Found 3 keyword categories!
+        - reclassification: reclassified
+        - restatement: recast, restated
+        - segment_change: segment reporting, reportable segments
+
+[3/10]
+
+================================================================================
+Scanning: INTC
+================================================================================
+  Found 2 recent filings
+
+  [1/2] 10-Q - 2025-11-06
+      Extracting section...
+      ✓ Extracted 76 characters
+      - No keywords found
+
+  [2/2] 10-Q - 2025-07-24
+      Extracting section...
+      ✓ Extracted 76 characters
+      - No keywords found
+
+[4/10]
+
+================================================================================
+Scanning: QCOM
+================================================================================
+  Found 2 recent filings
+
+  [1/2] 10-K - 2025-11-05
+      Extracting section...
+      ✓ Extracted 156 characters
+      - No keywords found
+
+  [2/2] 10-Q - 2025-07-30
+      Extracting section...
+      ✓ Extracted 39,566 characters
+      ✓ Found 2 keyword categories!
+        - reclassification: reclassified, reclassification
+        - segment_change: segment reporting, reportable segments
+
+[5/10]
+
+================================================================================
+Scanning: AVGO
+================================================================================
+  Found 2 recent filings
+
+  [1/2] 10-Q - 2025-09-10
+      Extracting section...
+      ✓ Extracted 64,724 characters
+      ✓ Found 2 keyword categories!
+        - reclassification: reclassification
+        - segment_change: segment reporting, reportable segments
+
+  [2/2] 10-Q - 2025-06-11
+      Extracting section...
+      ✓ Extracted 61,493 characters
+      ✓ Found 3 keyword categories!
+        - reclassification: reclassification
+        - restatement: restated
+        - segment_change: segment reporting, reportable segments
+
+[6/10]
+
+================================================================================
+Scanning: TXN
+================================================================================
+  Found 2 recent filings
+
+  [1/2] 10-Q - 2025-10-23
+      Extracting section...
+      ✓ Extracted 42,448 characters
+      ✓ Found 2 keyword categories!
+        - reclassification: reclassified
+        - segment_change: segment reporting, reportable segments
+
+  [2/2] 10-Q - 2025-07-29
+      Extracting section...
+      ✓ Extracted 39,343 characters
+      ✓ Found 2 keyword categories!
+        - reclassification: reclassified
+        - segment_change: reportable segments
+
+[7/10]
+
+================================================================================
+Scanning: NXPI
+================================================================================
+  Found 2 recent filings
+
+  [1/2] 10-Q - 2025-10-28
+      Extracting section...
+      ✓ Extracted 51,163 characters
+      ✓ Found 3 keyword categories!
+        - reclassification: reclassified, reclassification
+        - restatement: recast
+        - segment_change: segment reporting
+
+  [2/2] 10-Q - 2025-07-24
+      Extracting section...
+      ✓ Extracted 46,911 characters
+      ✓ Found 3 keyword categories!
+        - reclassification: reclassified, reclassification
+        - restatement: recast
+        - segment_change: segment reporting
+
+[8/10]
+
+================================================================================
+Scanning: MU
+================================================================================
+  Found 2 recent filings
+
+  [1/2] 10-K - 2025-10-03
+      Extracting section...
+      ✓ Extracted 115,001 characters
+      ✓ Found 3 keyword categories!
+        - reclassification: reclassified, reclassification
+        - restatement: recast
+        - segment_change: reportable segments
+
+  [2/2] 10-Q - 2025-06-25
+      Extracting section...
+      ✓ Extracted 66,337 characters
+      ✓ Found 3 keyword categories!
+        - reclassification: reclassified, reclassification
+        - restatement: recast
+        - segment_change: segment reporting, reportable segments
+
+[9/10]
+
+================================================================================
+Scanning: MRVL
+================================================================================
+  Found 2 recent filings
+
+  [1/2] 10-Q - 2025-08-29
+      Extracting section...
+      ✓ Extracted 66,480 characters
+      ✓ Found 2 keyword categories!
+        - reclassification: reclassified, reclassification
+        - restatement: restated
+
+  [2/2] 10-Q - 2025-05-30
+      Extracting section...
+      ✓ Extracted 58,821 characters
+      ✓ Found 1 keyword categories!
+        - reclassification: reclassified, reclassification
+
+[10/10]
+
+================================================================================
+Scanning: ASML
+================================================================================
+  ✗ No filings found for ASML
+
+================================================================================
+SCAN COMPLETE - SUMMARY
+================================================================================
+
+Total companies scanned: 10
+Companies with potential changes: 8
+Total filings analyzed: 18
+Filings with keyword matches: 15
+
+================================================================================
+COMPANIES WITH POTENTIAL ACCOUNTING CHANGES
+================================================================================
+
+NVDA:
+  10-Q - 2025-11-19
+    • geographic_revenue: geographic revenue, billing location
+    • previously: previously, revenue
+    • reclassification: reclassified, reclassification
+    • restatement: recast
+    • segment_change: segment reporting, reportable segments
+    URL: https://www.sec.gov/Archives/edgar/data/1045810/000104581025000230/nvda-20251026.htm
+  10-Q - 2025-08-27
+    • geographic_revenue: geographic revenue, billing location
+    • reclassification: reclassified, reclassification
+    • segment_change: segment reporting, reportable segments
+    URL: https://www.sec.gov/Archives/edgar/data/1045810/000104581025000209/nvda-20250727.htm
+
+AMD:
+  10-Q - 2025-11-04
+    • reclassification: reclassified
+    • restatement: recast, restated
+    • segment_change: segment reporting, reportable segments
+    URL: https://www.sec.gov/Archives/edgar/data/2488/000000248825000166/amd-20250927.htm
+  10-Q - 2025-08-05
+    • reclassification: reclassified
+    • restatement: recast, restated
+    • segment_change: segment reporting, reportable segments
+    URL: https://www.sec.gov/Archives/edgar/data/2488/000000248825000108/amd-20250628.htm
+
+QCOM:
+  10-Q - 2025-07-30
+    • reclassification: reclassified, reclassification
+    • segment_change: segment reporting, reportable segments
+    URL: https://www.sec.gov/Archives/edgar/data/804328/000080432825000045/qcom-20250629.htm
+
+AVGO:
+  10-Q - 2025-09-10
+    • reclassification: reclassification
+    • segment_change: segment reporting, reportable segments
+    URL: https://www.sec.gov/Archives/edgar/data/1730168/000173016825000098/avgo-20250803.htm
+  10-Q - 2025-06-11
+    • reclassification: reclassification
+    • restatement: restated
+    • segment_change: segment reporting, reportable segments
+    URL: https://www.sec.gov/Archives/edgar/data/1730168/000173016825000064/avgo-20250504.htm
+
+TXN:
+  10-Q - 2025-10-23
+    • reclassification: reclassified
+    • segment_change: segment reporting, reportable segments
+    URL: https://www.sec.gov/Archives/edgar/data/97476/000009747625000060/txn-20250930.htm
+  10-Q - 2025-07-29
+    • reclassification: reclassified
+    • segment_change: reportable segments
+    URL: https://www.sec.gov/Archives/edgar/data/97476/000009747625000036/txn-20250630.htm
+
+NXPI:
+  10-Q - 2025-10-28
+    • reclassification: reclassified, reclassification
+    • restatement: recast
+    • segment_change: segment reporting
+    URL: https://www.sec.gov/Archives/edgar/data/1413447/000141344725000120/nxpi-20250928.htm
+  10-Q - 2025-07-24
+    • reclassification: reclassified, reclassification
+    • restatement: recast
+    • segment_change: segment reporting
+    URL: https://www.sec.gov/Archives/edgar/data/1413447/000141344725000106/nxpi-20250629.htm
+
+MU:
+  10-K - 2025-10-03
+    • reclassification: reclassified, reclassification
+    • restatement: recast
+    • segment_change: reportable segments
+    URL: https://www.sec.gov/Archives/edgar/data/723125/000072312525000028/mu-20250828.htm
+  10-Q - 2025-06-25
+    • reclassification: reclassified, reclassification
+    • restatement: recast
+    • segment_change: segment reporting, reportable segments
+    URL: https://www.sec.gov/Archives/edgar/data/723125/000072312525000021/mu-20250529.htm
+
+MRVL:
+  10-Q - 2025-08-29
+    • reclassification: reclassified, reclassification
+    • restatement: restated
+    URL: https://www.sec.gov/Archives/edgar/data/1835632/000183563225000189/mrvl-20250802.htm
+  10-Q - 2025-05-30
+    • reclassification: reclassified, reclassification
+    URL: https://www.sec.gov/Archives/edgar/data/1835632/000183563225000117/mrvl-20250503.htm
+
+✓ Detailed report saved to: multi_company_scan_results.json
+✓ Summary report saved to: multi_company_scan_results_summary.txt
+
+================================================================================
+SCAN COMPLETE!
+================================================================================

@@ -1,16 +1,16 @@
 {
-  "generated_at": "2025-11-23T10:29:44.538495",
+  "generated_at": "2025-11-24T09:41:07.545430",
   "summary": {
-    "total_companies_scanned": 2,
-    "companies_with_findings": 2,
-    "total_filings_analyzed": 6,
-    "filings_with_findings": 6
+    "total_companies_scanned": 10,
+    "companies_with_findings": 8,
+    "total_filings_analyzed": 18,
+    "filings_with_findings": 15
   },
   "results": [
     {
       "ticker": "NVDA",
       "status": "success",
-      "filings_analyzed": 3,
+      "filings_analyzed": 2,
       "findings": [
         {
           "form": "10-Q",
@@ -57,16 +57,92 @@
             ]
           },
           "has_findings": true
+        }
+      ]
+    },
+    {
+      "ticker": "AMD",
+      "status": "success",
+      "filings_analyzed": 2,
+      "findings": [
+        {
+          "form": "10-Q",
+          "date": "2025-11-04T18:07:50-05:00",
+          "url": "https://www.sec.gov/Archives/edgar/data/2488/000000248825000166/amd-20250927.htm",
+          "findings": {
+            "reclassification": [
+              "reclassified"
+            ],
+            "restatement": [
+              "restated",
+              "recast"
+            ],
+            "segment_change": [
+              "reportable segments",
+              "segment reporting"
+            ]
+          },
+          "has_findings": true
         },
         {
           "form": "10-Q",
-          "date": "2025-05-28T16:32:57-04:00",
-          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000116/nvda-20250427.htm",
+          "date": "2025-08-05T18:08:21-04:00",
+          "url": "https://www.sec.gov/Archives/edgar/data/2488/000000248825000108/amd-20250628.htm",
           "findings": {
-            "geographic_revenue": [
-              "geographic revenue",
-              "billing location"
+            "reclassification": [
+              "reclassified"
             ],
+            "restatement": [
+              "restated",
+              "recast"
+            ],
+            "segment_change": [
+              "reportable segments",
+              "segment reporting"
+            ]
+          },
+          "has_findings": true
+        }
+      ]
+    },
+    {
+      "ticker": "INTC",
+      "status": "success",
+      "filings_analyzed": 2,
+      "findings": [
+        {
+          "form": "10-Q",
+          "date": "2025-11-06T09:06:25-05:00",
+          "url": "https://www.sec.gov/Archives/edgar/data/50863/000005086325000179/intc-20250927.htm",
+          "findings": {},
+          "has_findings": false
+        },
+        {
+          "form": "10-Q",
+          "date": "2025-07-24T16:08:10-04:00",
+          "url": "https://www.sec.gov/Archives/edgar/data/50863/000005086325000109/intc-20250628.htm",
+          "findings": {},
+          "has_findings": false
+        }
+      ]
+    },
+    {
+      "ticker": "QCOM",
+      "status": "success",
+      "filings_analyzed": 2,
+      "findings": [
+        {
+          "form": "10-K",
+          "date": "2025-11-05T16:02:49-05:00",
+          "url": "https://www.sec.gov/Archives/edgar/data/804328/000080432825000085/qcom-20250928.htm",
+          "findings": {},
+          "has_findings": false
+        },
+        {
+          "form": "10-Q",
+          "date": "2025-07-30T16:03:14-04:00",
+          "url": "https://www.sec.gov/Archives/edgar/data/804328/000080432825000045/qcom-20250629.htm",
+          "findings": {
             "reclassification": [
               "reclassified",
               "reclassification"
@@ -81,20 +157,17 @@
       ]
     },
     {
-      "ticker": "AAPL",
+      "ticker": "AVGO",
       "status": "success",
-      "filings_analyzed": 3,
+      "filings_analyzed": 2,
       "findings": [
         {
-          "form": "10-K",
-          "date": "2025-10-31T06:01:26-04:00",
-          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+          "form": "10-Q",
+          "date": "2025-09-10T16:00:41-04:00",
+          "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000098/avgo-20250803.htm",
           "findings": {
             "reclassification": [
-              "reclassified"
-            ],
-            "restatement": [
-              "recast"
+              "reclassification"
             ],
             "segment_change": [
               "reportable segments",
@@ -105,27 +178,186 @@
         },
         {
           "form": "10-Q",
-          "date": "2025-08-01T06:00:42-04:00",
-          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000073/aapl-20250628.htm",
+          "date": "2025-06-11T16:08:32-04:00",
+          "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000064/avgo-20250504.htm",
           "findings": {
+            "reclassification": [
+              "reclassification"
+            ],
             "restatement": [
-              "recast"
+              "restated"
+            ],
+            "segment_change": [
+              "reportable segments",
+              "segment reporting"
+            ]
+          },
+          "has_findings": true
+        }
+      ]
+    },
+    {
+      "ticker": "TXN",
+      "status": "success",
+      "filings_analyzed": 2,
+      "findings": [
+        {
+          "form": "10-Q",
+          "date": "2025-10-23T13:50:44-04:00",
+          "url": "https://www.sec.gov/Archives/edgar/data/97476/000009747625000060/txn-20250930.htm",
+          "findings": {
+            "reclassification": [
+              "reclassified"
+            ],
+            "segment_change": [
+              "reportable segments",
+              "segment reporting"
             ]
           },
           "has_findings": true
         },
         {
           "form": "10-Q",
-          "date": "2025-05-02T06:00:46-04:00",
-          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000057/aapl-20250329.htm",
+          "date": "2025-07-29T09:43:59-04:00",
+          "url": "https://www.sec.gov/Archives/edgar/data/97476/000009747625000036/txn-20250630.htm",
           "findings": {
-            "restatement": [
-              "recast"
+            "reclassification": [
+              "reclassified"
+            ],
+            "segment_change": [
+              "reportable segments"
             ]
           },
           "has_findings": true
         }
       ]
+    },
+    {
+      "ticker": "NXPI",
+      "status": "success",
+      "filings_analyzed": 2,
+      "findings": [
+        {
+          "form": "10-Q",
+          "date": "2025-10-28T06:45:53-04:00",
+          "url": "https://www.sec.gov/Archives/edgar/data/1413447/000141344725000120/nxpi-20250928.htm",
+          "findings": {
+            "reclassification": [
+              "reclassified",
+              "reclassification"
+            ],
+            "restatement": [
+              "recast"
+            ],
+            "segment_change": [
+              "segment reporting"
+            ]
+          },
+          "has_findings": true
+        },
+        {
+          "form": "10-Q",
+          "date": "2025-07-24T16:37:03-04:00",
+          "url": "https://www.sec.gov/Archives/edgar/data/1413447/000141344725000106/nxpi-20250629.htm",
+          "findings": {
+            "reclassification": [
+              "reclassified",
+              "reclassification"
+            ],
+            "restatement": [
+              "recast"
+            ],
+            "segment_change": [
+              "segment reporting"
+            ]
+          },
+          "has_findings": true
+        }
+      ]
+    },
+    {
+      "ticker": "MU",
+      "status": "success",
+      "filings_analyzed": 2,
+      "findings": [
+        {
+          "form": "10-K",
+          "date": "2025-10-03T14:42:25-04:00",
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000028/mu-20250828.htm",
+          "findings": {
+            "reclassification": [
+              "reclassified",
+              "reclassification"
+            ],
+            "restatement": [
+              "recast"
+            ],
+            "segment_change": [
+              "reportable segments"
+            ]
+          },
+          "has_findings": true
+        },
+        {
+          "form": "10-Q",
+          "date": "2025-06-25T18:50:42-04:00",
+          "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312525000021/mu-20250529.htm",
+          "findings": {
+            "reclassification": [
+              "reclassified",
+              "reclassification"
+            ],
+            "restatement": [
+              "recast"
+            ],
+            "segment_change": [
+              "reportable segments",
+              "segment reporting"
+            ]
+          },
+          "has_findings": true
+        }
+      ]
+    },
+    {
+      "ticker": "MRVL",
+      "status": "success",
+      "filings_analyzed": 2,
+      "findings": [
+        {
+          "form": "10-Q",
+          "date": "2025-08-29T16:04:38-04:00",
+          "url": "https://www.sec.gov/Archives/edgar/data/1835632/000183563225000189/mrvl-20250802.htm",
+          "findings": {
+            "reclassification": [
+              "reclassified",
+              "reclassification"
+            ],
+            "restatement": [
+              "restated"
+            ]
+          },
+          "has_findings": true
+        },
+        {
+          "form": "10-Q",
+          "date": "2025-05-30T16:06:49-04:00",
+          "url": "https://www.sec.gov/Archives/edgar/data/1835632/000183563225000117/mrvl-20250503.htm",
+          "findings": {
+            "reclassification": [
+              "reclassified",
+              "reclassification"
+            ]
+          },
+          "has_findings": true
+        }
+      ]
+    },
+    {
+      "ticker": "ASML",
+      "status": "no_filings",
+      "filings_analyzed": 0,
+      "findings": []
     }
   ]
 }
