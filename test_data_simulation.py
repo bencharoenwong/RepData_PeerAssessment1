@@ -17,7 +17,7 @@ import pandas as pd
 from datetime import datetime
 from scipy import stats
 
-from smartestimates_simulation import (
+from smartestimates import (
     SimulationConfig,
     DataSimulator
 )

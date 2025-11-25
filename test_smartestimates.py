@@ -25,16 +25,12 @@ from datetime import datetime, timedelta
 import warnings
 
 # Import modules to test
-from smartestimates_simulation import (
+from smartestimates import (
     SimulationConfig,
     DataSimulator,
     SmartEstimateBuilder,
     PerformanceEvaluator,
-    create_visualizations,
-    run_simulation
-)
-
-from smartestimates_real_data import (
+    run_simulation,
     IBESDataLoader,
     RealDataSmartEstimateEngine
 )

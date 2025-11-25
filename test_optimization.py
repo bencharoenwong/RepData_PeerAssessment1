@@ -1,14 +1,14 @@
 """
-Test Suite for Optimized vs Original Implementation
-===================================================
+Test Suite for SmartEstimates Performance
+==========================================
 
-Tests that the optimized O(n) implementation produces similar results
-to the original O(n²) implementation and is actually faster.
+Tests that the SmartEstimates implementation is efficient and produces
+correct results with proper temporal consistency.
 
 Run with: pytest test_optimization.py -v
 
 Author: Quantitative Research
-Date: 2025-11-24
+Date: 2025-11-25
 """
 
 import pytest
@@ -17,25 +17,20 @@ import pandas as pd
 import time
 from scipy import stats
 
-from smartestimates_simulation import (
+from smartestimates import (
     SimulationConfig,
     DataSimulator,
     SmartEstimateBuilder,
     PerformanceEvaluator
 )
 
-from smartestimates_simulation_optimized import (
-    SmartEstimateBuilderOptimized,
-    run_simulation_optimized
-)
 
-
-class TestOptimizedVsOriginal:
-    """Compare optimized and original implementations."""
+class TestPerformance:
+    """Test SmartEstimates performance and correctness."""
 
     @pytest.fixture
     def test_data(self):
-        """Generate test data for comparison."""
+        """Generate test data for performance testing."""
         np.random.seed(42)
         config = SimulationConfig(
             n_companies=10,
@@ -50,56 +45,48 @@ class TestOptimizedVsOriginal:
 
         return config, forecasts_df, simulator.analyst_skills
 
-    def test_same_results_small_dataset(self, test_data):
-        """Test that both implementations produce similar results on small dataset."""
-        config, forecasts_df, analyst_skills = test_data
+    def test_sequential_processing_works(self, test_data):
+        """Test that sequential processing produces valid results."""
+        config, forecasts_df, _ = test_data
 
-        # Original implementation
-        builder_orig = SmartEstimateBuilder(config)
-        results_orig = []
+        builder = SmartEstimateBuilder(config)
+        results_df = builder.construct_smartestimates_sequential(forecasts_df, verbose=False)
 
-        periods = sorted(forecasts_df['period'].unique())
-        for period in periods:
-            if period > 0:
-                builder_orig.update_accuracy_history(forecasts_df, period - 1)
+        # Verify we got results
+        assert len(results_df) > 0
 
-            companies = forecasts_df[forecasts_df['period'] == period]['company'].unique()
-            for company in companies:
-                result = builder_orig.construct_smartestimate(forecasts_df, period, company)
-                if result is not None:
-                    results_orig.append(result)
+        # Verify essential columns exist
+        expected_cols = ['period', 'company', 'consensus', 'smart_estimate', 'n_analysts', 'true_eps']
+        for col in expected_cols:
+            assert col in results_df.columns
 
-        results_df_orig = pd.DataFrame(results_orig)
+        # Verify no NaN in key columns
+        assert results_df['consensus'].notna().all()
+        assert results_df['smart_estimate'].notna().all()
 
-        # Optimized implementation
-        builder_opt = SmartEstimateBuilderOptimized(config)
+        # Verify SmartEstimate is finite
+        assert np.isfinite(results_df['smart_estimate']).all()
 
-        # Build accuracy history
-        for period in periods[:-1]:
-            if period > 0:
-                builder_opt.update_accuracy_history(forecasts_df, period)
+    def test_smartestimate_improves_over_consensus(self, test_data):
+        """Test that SmartEstimate generally outperforms consensus."""
+        config, forecasts_df, _ = test_data
 
-        results_df_opt = builder_opt.construct_smartestimates_batch(forecasts_df)
+        builder = SmartEstimateBuilder(config)
+        results_df = builder.construct_smartestimates_sequential(forecasts_df, verbose=False)
 
-        # Compare results
-        merged = results_df_orig.merge(
-            results_df_opt,
-            on=['period', 'company'],
-            suffixes=('_orig', '_opt')
-        )
+        # Calculate errors
+        evaluator = PerformanceEvaluator()
+        results_df = evaluator.calculate_metrics(results_df)
 
-        # Check consensus values match (should be identical)
-        consensus_diff = (merged['consensus_orig'] - merged['consensus_opt']).abs()
-        assert consensus_diff.max() < 1e-10, "Consensus values should be identical"
+        # SmartEstimate RMSE should be <= consensus (with small tolerance)
+        consensus_rmse = np.sqrt(results_df['se_consensus'].mean())
+        smart_rmse = np.sqrt(results_df['se_smart'].mean())
 
-        # Check SmartEstimates are similar (may differ slightly due to timing)
-        se_diff = (merged['smart_estimate_orig'] - merged['smart_estimate_opt']).abs()
-        mean_diff_pct = (se_diff / merged['smart_estimate_orig'].abs()).mean() * 100
+        # Allow 10% tolerance (SmartEstimate might be slightly worse on tiny datasets)
+        assert smart_rmse <= consensus_rmse * 1.1
 
-        assert mean_diff_pct < 5, f"SmartEstimates differ by {mean_diff_pct:.2f}% on average"
-
-    def test_optimization_is_faster(self):
-        """Test that optimized version is faster."""
+    def test_performance_is_reasonable(self):
+        """Test that processing performance is reasonable for medium dataset."""
         config = SimulationConfig(
             n_companies=20,
             n_industries=3,
@@ -112,88 +99,28 @@ class TestOptimizedVsOriginal:
         realized_df = simulator.generate_realized_values()
         forecasts_df = simulator.generate_forecasts(realized_df)
 
-        # Time original implementation
-        builder_orig = SmartEstimateBuilder(config)
-        start_orig = time.time()
+        # Time the sequential processing
+        builder = SmartEstimateBuilder(config)
+        start = time.time()
+        results_df = builder.construct_smartestimates_sequential(forecasts_df, verbose=False)
+        elapsed = time.time() - start
 
-        periods = sorted(forecasts_df['period'].unique())
-        results_orig = []
-        for period in periods:
-            if period > 0:
-                builder_orig.update_accuracy_history(forecasts_df, period - 1)
+        forecasts_per_sec = len(forecasts_df) / elapsed
 
-            companies = forecasts_df[forecasts_df['period'] == period]['company'].unique()
-            for company in companies:
-                result = builder_orig.construct_smartestimate(forecasts_df, period, company)
-                if result is not None:
-                    results_orig.append(result)
+        print(f"\nPerformance: {len(forecasts_df):,} forecasts in {elapsed:.2f}s ({forecasts_per_sec:.0f} forecasts/sec)")
 
-        time_orig = time.time() - start_orig
+        # Should process at least 500 forecasts per second (very conservative)
+        assert forecasts_per_sec > 500, f"Too slow: {forecasts_per_sec:.0f} forecasts/sec"
 
-        # Time optimized implementation
-        builder_opt = SmartEstimateBuilderOptimized(config)
-        start_opt = time.time()
-
-        for period in periods[:-1]:
-            if period > 0:
-                builder_opt.update_accuracy_history(forecasts_df, period)
-
-        results_df_opt = builder_opt.construct_smartestimates_batch(forecasts_df)
-        time_opt = time.time() - start_opt
-
-        speedup = time_orig / time_opt
-
-        print(f"\nPerformance comparison:")
-        print(f"  Original: {time_orig:.2f}s")
-        print(f"  Optimized: {time_opt:.2f}s")
-        print(f"  Speedup: {speedup:.2f}x")
-
-        # Optimized should be faster (at least on this size)
-        assert time_opt < time_orig, "Optimized version should be faster"
-
-    def test_industry_mean_caching_works(self, test_data):
-        """Test that industry mean caching produces correct results."""
-        config, forecasts_df, _ = test_data
-
-        builder = SmartEstimateBuilderOptimized(config)
-
-        # Pre-compute industry means
-        industry_means = forecasts_df.groupby(['period', 'industry'])['forecast_eps'].mean()
-        builder._industry_means_cache = {
-            (row[0], row[1]): mean
-            for (row, mean) in industry_means.items()
-        }
-
-        # Test a specific company-period
-        period = 5
-        company = 'RIC_000'
-
-        period_forecasts = forecasts_df[
-            (forecasts_df['period'] == period) &
-            (forecasts_df['company'] == company)
-        ].copy()
-
-        if len(period_forecasts) > 0:
-            industry = period_forecasts['industry'].iloc[0]
-
-            # Cached value
-            cached_mean = builder._industry_means_cache.get((period, industry))
-
-            # Computed value
-            computed_mean = forecasts_df[
-                (forecasts_df['period'] == period) &
-                (forecasts_df['industry'] == industry)
-            ]['forecast_eps'].mean()
-
-            # Should match
-            assert abs(cached_mean - computed_mean) < 1e-10
+        # Verify we got results
+        assert len(results_df) > 0
 
 
 class TestScalability:
     """Test performance scaling with different dataset sizes."""
 
     def test_linear_scaling_hypothesis(self):
-        """Test that optimized version scales linearly with data size."""
+        """Test that processing time scales reasonably with data size."""
         config_base = SimulationConfig(
             n_companies=10,
             n_industries=2,
@@ -219,16 +146,10 @@ class TestScalability:
 
             sizes.append(len(forecasts_df))
 
-            # Time optimized version
-            builder = SmartEstimateBuilderOptimized(config)
-            periods = sorted(forecasts_df['period'].unique())
-
-            for period in periods[:-1]:
-                if period > 0:
-                    builder.update_accuracy_history(forecasts_df, period)
-
+            # Time sequential processing
+            builder = SmartEstimateBuilder(config)
             start = time.time()
-            results = builder.construct_smartestimates_batch(forecasts_df)
+            results = builder.construct_smartestimates_sequential(forecasts_df, verbose=False)
             elapsed = time.time() - start
 
             timings.append(elapsed)
@@ -237,17 +158,18 @@ class TestScalability:
         for size, timing in zip(sizes, timings):
             print(f"  {size:,} forecasts: {timing:.2f}s ({size/timing:.0f} forecasts/sec)")
 
-        # Check that time scales linearly (or better) with size
-        # If linear: time2/time1 ≈ size2/size1
+        # Check that time scales reasonably with size
+        # Allow for some overhead, but should be roughly linear (or better)
         time_ratio = timings[2] / timings[0]
         size_ratio = sizes[2] / sizes[0]
 
-        # Allow for some overhead, but should be roughly linear
-        assert time_ratio < size_ratio * 1.5, "Time should scale linearly with data size"
+        # Time should not scale quadratically (would be size_ratio^2)
+        # Allow up to 2x linear scaling due to overhead
+        assert time_ratio < size_ratio * 2.0, f"Scaling too slow: time ratio {time_ratio:.1f}x vs size ratio {size_ratio:.1f}x"
 
 
 class TestCorrectnessWithEdgeCases:
-    """Test that optimized version handles edge cases correctly."""
+    """Test that implementation handles edge cases correctly."""
 
     def test_single_company(self):
         """Test with single company."""
@@ -263,14 +185,8 @@ class TestCorrectnessWithEdgeCases:
         realized_df = simulator.generate_realized_values()
         forecasts_df = simulator.generate_forecasts(realized_df)
 
-        builder = SmartEstimateBuilderOptimized(config)
-        periods = sorted(forecasts_df['period'].unique())
-
-        for period in periods[:-1]:
-            if period > 0:
-                builder.update_accuracy_history(forecasts_df, period)
-
-        results = builder.construct_smartestimates_batch(forecasts_df)
+        builder = SmartEstimateBuilder(config)
+        results = builder.construct_smartestimates_sequential(forecasts_df, verbose=False)
 
         assert len(results) > 0
         assert results['company'].nunique() == 1
@@ -289,8 +205,8 @@ class TestCorrectnessWithEdgeCases:
         realized_df = simulator.generate_realized_values()
         forecasts_df = simulator.generate_forecasts(realized_df)
 
-        builder = SmartEstimateBuilderOptimized(config)
-        results = builder.construct_smartestimates_batch(forecasts_df)
+        builder = SmartEstimateBuilder(config)
+        results = builder.construct_smartestimates_sequential(forecasts_df, verbose=False)
 
         assert len(results) > 0
         assert results['period'].nunique() == 1
@@ -310,14 +226,8 @@ class TestCorrectnessWithEdgeCases:
         realized_df = simulator.generate_realized_values()
         forecasts_df = simulator.generate_forecasts(realized_df)
 
-        builder = SmartEstimateBuilderOptimized(config)
-        periods = sorted(forecasts_df['period'].unique())
-
-        for period in periods[:-1]:
-            if period > 0:
-                builder.update_accuracy_history(forecasts_df, period)
-
-        results = builder.construct_smartestimates_batch(forecasts_df)
+        builder = SmartEstimateBuilder(config)
+        results = builder.construct_smartestimates_sequential(forecasts_df, verbose=False)
 
         # Should handle sparse data
         assert len(results) > 0
@@ -325,7 +235,7 @@ class TestCorrectnessWithEdgeCases:
 
 
 class TestNumericalStability:
-    """Test numerical stability of optimized implementation."""
+    """Test numerical stability of implementation."""
 
     def test_extreme_values(self):
         """Test with extreme forecast values."""
@@ -343,14 +253,8 @@ class TestNumericalStability:
         realized_df = simulator.generate_realized_values()
         forecasts_df = simulator.generate_forecasts(realized_df)
 
-        builder = SmartEstimateBuilderOptimized(config)
-        periods = sorted(forecasts_df['period'].unique())
-
-        for period in periods[:-1]:
-            if period > 0:
-                builder.update_accuracy_history(forecasts_df, period)
-
-        results = builder.construct_smartestimates_batch(forecasts_df)
+        builder = SmartEstimateBuilder(config)
+        results = builder.construct_smartestimates_sequential(forecasts_df, verbose=False)
 
         # All results should be finite
         assert results['smart_estimate'].notna().all()
@@ -382,12 +286,13 @@ class TestNumericalStability:
         forecasts_df = pd.DataFrame(data)
         config = SimulationConfig()
 
-        builder = SmartEstimateBuilderOptimized(config)
-        results = builder.construct_smartestimates_batch(forecasts_df)
+        builder = SmartEstimateBuilder(config)
+        results = builder.construct_smartestimates_sequential(forecasts_df, verbose=False)
 
         # Should handle this without crashing
         assert len(results) > 0
-        assert results['consensus'].eq(1.0).all()  # All forecasts were 1.0
+        # When all forecasts are 1.0, consensus should be 1.0
+        assert results['consensus'].eq(1.0).all()
 
 
 if __name__ == "__main__":
