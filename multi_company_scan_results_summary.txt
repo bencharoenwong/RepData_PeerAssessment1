@@ -1,16 +1,105 @@
 MULTI-COMPANY ACCOUNTING CHANGES SCAN
 ================================================================================
 
-Generated: 2025-11-24 09:41:07
+Generated: 2025-11-25 03:33:17
 
-Companies scanned: 10
-Companies with findings: 8
-Total filings analyzed: 18
-Filings with findings: 15
+Companies scanned: 30
+Companies with findings: 28
+Total filings analyzed: 60
+Filings with findings: 54
 
 ================================================================================
 DETAILED FINDINGS
 ================================================================================
+
+
+AAPL
+--------------------------------------------------------------------------------
+
+10-K filed 2025-10-31
+URL: https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm
+
+Keyword matches:
+  - reclassification: reclassified
+  - restatement: recast
+  - segment_change: segment reporting, reportable segments
+
+
+10-Q filed 2025-08-01
+URL: https://www.sec.gov/Archives/edgar/data/320193/000032019325000073/aapl-20250628.htm
+
+Keyword matches:
+  - restatement: recast
+
+
+MSFT
+--------------------------------------------------------------------------------
+
+10-Q filed 2025-10-29
+URL: https://www.sec.gov/Archives/edgar/data/789019/000119312525256321/msft-20250930.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+  - restatement: recast
+  - segment_change: reportable segments
+
+
+10-K filed 2025-07-30
+URL: https://www.sec.gov/Archives/edgar/data/789019/000095017025100235/msft-20250630.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+  - restatement: recast
+  - segment_change: segment reporting, reportable segments
+
+
+GOOGL
+--------------------------------------------------------------------------------
+
+10-Q filed 2021-10-26
+URL: https://www.sec.gov/Archives/edgar/data/1652044/000165204421000057/goog-20210930.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+  - restatement: recast, restated
+
+
+10-Q filed 2021-07-27
+URL: https://www.sec.gov/Archives/edgar/data/1652044/000165204421000047/goog-20210630.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+  - restatement: recast, restated
+
+
+META
+--------------------------------------------------------------------------------
+
+10-Q filed 2025-10-29
+URL: https://www.sec.gov/Archives/edgar/data/1326801/000162828025047240/meta-20250930.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+  - segment_change: reportable segments
+
+
+10-Q filed 2025-07-30
+URL: https://www.sec.gov/Archives/edgar/data/1326801/000162828025036791/meta-20250630.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+  - segment_change: reportable segments
+
+
+ORCL
+--------------------------------------------------------------------------------
+
+10-Q filed 2025-09-10
+URL: https://www.sec.gov/Archives/edgar/data/1341439/000119312525200095/orcl-20250831.htm
+
+Keyword matches:
+  - reclassification: reclassification
+  - segment_change: segment reporting
 
 
 NVDA
@@ -57,11 +146,6 @@ Keyword matches:
   - segment_change: segment reporting, reportable segments
 
 
-INTC
---------------------------------------------------------------------------------
-No accounting change keywords found in recent filings.
-
-
 QCOM
 --------------------------------------------------------------------------------
 
@@ -73,80 +157,103 @@ Keyword matches:
   - segment_change: segment reporting, reportable segments
 
 
-AVGO
+PG
 --------------------------------------------------------------------------------
 
-10-Q filed 2025-09-10
-URL: https://www.sec.gov/Archives/edgar/data/1730168/000173016825000098/avgo-20250803.htm
+10-Q filed 2025-10-24
+URL: https://www.sec.gov/Archives/edgar/data/80424/000008042425000245/pg-20250930.htm
 
 Keyword matches:
-  - reclassification: reclassification
+  - previously: previously reported
+  - reclassification: reclassified, reclassification
+  - restatement: recast
   - segment_change: segment reporting, reportable segments
 
 
-10-Q filed 2025-06-11
-URL: https://www.sec.gov/Archives/edgar/data/1730168/000173016825000064/avgo-20250504.htm
+10-K filed 2025-08-04
+URL: https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm
 
 Keyword matches:
-  - reclassification: reclassification
-  - restatement: restated
+  - previously: previously reported
+  - reclassification: reclassified, reclassification
+  - restatement: recast
   - segment_change: segment reporting, reportable segments
 
 
-TXN
+KO
 --------------------------------------------------------------------------------
 
 10-Q filed 2025-10-23
-URL: https://www.sec.gov/Archives/edgar/data/97476/000009747625000060/txn-20250930.htm
+URL: https://www.sec.gov/Archives/edgar/data/21344/000162828025046054/ko-20250926.htm
 
 Keyword matches:
-  - reclassification: reclassified
+  - reclassification: reclassified, reclassification
+  - restatement: recast
+
+
+10-Q filed 2025-07-24
+URL: https://www.sec.gov/Archives/edgar/data/21344/000002134425000061/ko-20250627.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+  - restatement: recast
+
+
+PEP
+--------------------------------------------------------------------------------
+
+10-Q filed 2025-10-08
+URL: https://www.sec.gov/Archives/edgar/data/77476/000007747625000053/pep-20250906.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+  - restatement: recast
+  - segment_change: segment reporting, reportable segments
+
+
+10-Q filed 2025-07-16
+URL: https://www.sec.gov/Archives/edgar/data/77476/000007747625000044/pep-20250614.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+  - restatement: recast
+  - segment_change: segment reporting, reportable segments
+
+
+NKE
+--------------------------------------------------------------------------------
+
+10-Q filed 2025-10-01
+URL: https://www.sec.gov/Archives/edgar/data/320187/000032018725000097/nke-20250831.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+  - restatement: recast
+
+
+10-K filed 2025-07-17
+URL: https://www.sec.gov/Archives/edgar/data/320187/000032018725000047/nke-20250531.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+  - restatement: recast
+  - segment_change: segment reporting, reportable segments
+
+
+SBUX
+--------------------------------------------------------------------------------
+
+10-K filed 2025-11-14
+URL: https://www.sec.gov/Archives/edgar/data/829224/000082922425000114/sbux-20250928.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+  - restatement: recast
   - segment_change: segment reporting, reportable segments
 
 
 10-Q filed 2025-07-29
-URL: https://www.sec.gov/Archives/edgar/data/97476/000009747625000036/txn-20250630.htm
-
-Keyword matches:
-  - reclassification: reclassified
-  - segment_change: reportable segments
-
-
-NXPI
---------------------------------------------------------------------------------
-
-10-Q filed 2025-10-28
-URL: https://www.sec.gov/Archives/edgar/data/1413447/000141344725000120/nxpi-20250928.htm
-
-Keyword matches:
-  - reclassification: reclassified, reclassification
-  - restatement: recast
-  - segment_change: segment reporting
-
-
-10-Q filed 2025-07-24
-URL: https://www.sec.gov/Archives/edgar/data/1413447/000141344725000106/nxpi-20250629.htm
-
-Keyword matches:
-  - reclassification: reclassified, reclassification
-  - restatement: recast
-  - segment_change: segment reporting
-
-
-MU
---------------------------------------------------------------------------------
-
-10-K filed 2025-10-03
-URL: https://www.sec.gov/Archives/edgar/data/723125/000072312525000028/mu-20250828.htm
-
-Keyword matches:
-  - reclassification: reclassified, reclassification
-  - restatement: recast
-  - segment_change: reportable segments
-
-
-10-Q filed 2025-06-25
-URL: https://www.sec.gov/Archives/edgar/data/723125/000072312525000021/mu-20250529.htm
+URL: https://www.sec.gov/Archives/edgar/data/829224/000082922425000058/sbux-20250629.htm
 
 Keyword matches:
   - reclassification: reclassified, reclassification
@@ -154,25 +261,305 @@ Keyword matches:
   - segment_change: segment reporting, reportable segments
 
 
-MRVL
+JNJ
 --------------------------------------------------------------------------------
 
-10-Q filed 2025-08-29
-URL: https://www.sec.gov/Archives/edgar/data/1835632/000183563225000189/mrvl-20250802.htm
+10-Q filed 2025-10-22
+URL: https://www.sec.gov/Archives/edgar/data/200406/000020040625000209/jnj-20250928.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+  - restatement: recast
+
+
+10-Q filed 2025-07-24
+URL: https://www.sec.gov/Archives/edgar/data/200406/000020040625000178/jnj-20250629.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+  - restatement: recast
+
+
+UNH
+--------------------------------------------------------------------------------
+
+10-Q filed 2025-10-28
+URL: https://www.sec.gov/Archives/edgar/data/731766/000073176625000305/unh-20250930.htm
+
+Keyword matches:
+  - reclassification: reclassification
+  - segment_change: reportable segments
+
+
+10-Q filed 2025-08-11
+URL: https://www.sec.gov/Archives/edgar/data/731766/000073176625000236/unh-20250630.htm
+
+Keyword matches:
+  - reclassification: reclassification
+  - segment_change: reportable segments
+
+
+PFE
+--------------------------------------------------------------------------------
+
+10-Q filed 2025-11-04
+URL: https://www.sec.gov/Archives/edgar/data/78003/000007800325000150/pfe-20250928.htm
+
+Keyword matches:
+  - previously: previously reported
+  - reclassification: reclassified, reclassification
+  - restatement: recast
+
+
+10-Q filed 2025-08-05
+URL: https://www.sec.gov/Archives/edgar/data/78003/000007800325000138/pfe-20250629.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+  - restatement: recast
+
+
+ABBV
+--------------------------------------------------------------------------------
+
+10-Q filed 2025-11-04
+URL: https://www.sec.gov/Archives/edgar/data/1551152/000155115225000049/abbv-20250930.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+  - restatement: recast, restated
+
+
+10-Q filed 2025-08-04
+URL: https://www.sec.gov/Archives/edgar/data/1551152/000155115225000040/abbv-20250630.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+  - restatement: recast, restated
+
+
+JPM
+--------------------------------------------------------------------------------
+
+10-Q filed 2025-11-04
+URL: https://www.sec.gov/Archives/edgar/data/19617/000162828025048859/jpm-20250930.htm
+
+Keyword matches:
+  - reclassification: reclassification
+  - restatement: recast
+
+
+10-Q filed 2025-08-05
+URL: https://www.sec.gov/Archives/edgar/data/19617/000001961725000615/jpm-20250630.htm
+
+Keyword matches:
+  - reclassification: reclassification
+  - restatement: recast
+
+
+BAC
+--------------------------------------------------------------------------------
+No accounting change keywords found in recent filings.
+
+
+WFC
+--------------------------------------------------------------------------------
+
+10-Q filed 2025-10-31
+URL: https://www.sec.gov/Archives/edgar/data/72971/000007297125000253/wfc-20250930.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+  - restatement: recast, restated
+
+
+10-Q filed 2025-08-05
+URL: https://www.sec.gov/Archives/edgar/data/72971/000007297125000201/wfc-20250630.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+  - restatement: recast, restated
+
+
+GS
+--------------------------------------------------------------------------------
+
+10-Q filed 2025-10-31
+URL: https://www.sec.gov/Archives/edgar/data/886982/000088698225001411/gs-20250930.htm
+
+Keyword matches:
+  - previously: previously reported
+  - reclassification: reclassified, reclassification
+  - restatement: recast
+
+
+10-Q filed 2025-08-01
+URL: https://www.sec.gov/Archives/edgar/data/886982/000088698225000022/gs-20250630.htm
+
+Keyword matches:
+  - previously: previously reported
+  - reclassification: reclassified, reclassification
+  - restatement: recast
+
+
+CAT
+--------------------------------------------------------------------------------
+
+10-Q filed 2025-11-03
+URL: https://www.sec.gov/Archives/edgar/data/18230/000001823025000048/cat-20250930.htm
+
+Keyword matches:
+  - reclassification: reclassified
+  - restatement: recast
+  - segment_change: segment reporting, reportable segments
+
+
+10-Q filed 2025-08-06
+URL: https://www.sec.gov/Archives/edgar/data/18230/000001823025000040/cat-20250630.htm
+
+Keyword matches:
+  - reclassification: reclassified
+  - restatement: recast
+  - segment_change: segment reporting, reportable segments
+
+
+BA
+--------------------------------------------------------------------------------
+
+10-Q filed 2025-10-29
+URL: https://www.sec.gov/Archives/edgar/data/12927/000162828025047023/ba-20250930.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+  - restatement: recast
+
+
+10-Q filed 2025-07-29
+URL: https://www.sec.gov/Archives/edgar/data/12927/000001292725000062/ba-20250630.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+  - restatement: recast
+
+
+HON
+--------------------------------------------------------------------------------
+
+10-Q filed 2025-10-23
+URL: https://www.sec.gov/Archives/edgar/data/773840/000077384025000105/hon-20250930.htm
 
 Keyword matches:
   - reclassification: reclassified, reclassification
   - restatement: restated
+  - segment_change: segment reporting
 
 
-10-Q filed 2025-05-30
-URL: https://www.sec.gov/Archives/edgar/data/1835632/000183563225000117/mrvl-20250503.htm
+10-Q filed 2025-07-24
+URL: https://www.sec.gov/Archives/edgar/data/773840/000077384025000064/hon-20250630.htm
 
 Keyword matches:
   - reclassification: reclassified, reclassification
+  - restatement: restated
+  - segment_change: segment reporting
 
 
-ASML
+GE
 --------------------------------------------------------------------------------
 No accounting change keywords found in recent filings.
+
+
+WMT
+--------------------------------------------------------------------------------
+
+10-Q filed 2025-08-29
+URL: https://www.sec.gov/Archives/edgar/data/104169/000010416925000137/wmt-20250731.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+  - segment_change: reportable segments
+
+
+10-Q filed 2025-06-06
+URL: https://www.sec.gov/Archives/edgar/data/104169/000010416925000090/wmt-20250430.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+  - segment_change: reportable segments
+
+
+HD
+--------------------------------------------------------------------------------
+
+10-Q filed 2025-08-25
+URL: https://www.sec.gov/Archives/edgar/data/354950/000035495025000217/hd-20250803.htm
+
+Keyword matches:
+  - restatement: restated
+  - segment_change: segment reporting
+
+
+10-Q filed 2025-05-27
+URL: https://www.sec.gov/Archives/edgar/data/354950/000035495025000165/hd-20250504.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+  - segment_change: segment reporting
+
+
+COST
+--------------------------------------------------------------------------------
+
+10-K filed 2025-10-07
+URL: https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm
+
+Keyword matches:
+  - reclassification: reclassification
+  - restatement: restated
+  - segment_change: segment reporting, reportable segments
+
+
+10-Q filed 2025-06-04
+URL: https://www.sec.gov/Archives/edgar/data/909832/000090983225000033/cost-20250511.htm
+
+Keyword matches:
+  - reclassification: reclassification
+  - segment_change: segment reporting, reportable segments
+
+
+XOM
+--------------------------------------------------------------------------------
+
+10-Q filed 2025-11-03
+URL: https://www.sec.gov/Archives/edgar/data/34088/000003408825000061/xom-20250930.htm
+
+Keyword matches:
+  - reclassification: reclassified
+
+
+10-Q filed 2025-08-04
+URL: https://www.sec.gov/Archives/edgar/data/34088/000003408825000042/xom-20250630.htm
+
+Keyword matches:
+  - reclassification: reclassified
+
+
+CVX
+--------------------------------------------------------------------------------
+
+10-Q filed 2025-11-06
+URL: https://www.sec.gov/Archives/edgar/data/93410/000009341025000108/cvx-20250930.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+  - restatement: recast
+  - segment_change: reportable segments
+
+
+10-Q filed 2025-08-07
+URL: https://www.sec.gov/Archives/edgar/data/93410/000009341025000062/cvx-20250630.htm
+
+Keyword matches:
+  - reclassification: reclassified, reclassification
+  - restatement: recast
+  - segment_change: reportable segments
 
