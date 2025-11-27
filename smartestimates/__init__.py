@@ -29,6 +29,16 @@ from .data_loader import (
     RealDataSmartEstimateEngine
 )
 
+from .decomposition import (
+    ForecastDecomposer
+)
+
+from .ibes_simulator import (
+    IBESDataSimulator,
+    IBESSimulationConfig,
+    create_realistic_ibes_sample
+)
+
 __version__ = "1.0.0"
 
 __all__ = [
@@ -44,4 +54,10 @@ __all__ = [
     # Data Loading
     'IBESDataLoader',
     'RealDataSmartEstimateEngine',
+    # Decomposition
+    'ForecastDecomposer',
+    # I/B/E/S Simulation
+    'IBESDataSimulator',
+    'IBESSimulationConfig',
+    'create_realistic_ibes_sample',
 ]

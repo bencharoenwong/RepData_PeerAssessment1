@@ -194,13 +194,16 @@ class RealDataSmartEstimateEngine:
         self.builder = SmartEstimateBuilder(config)
 
     def compute_smartestimates(self, forecasts_df: pd.DataFrame,
-                               include_actuals: bool = True) -> pd.DataFrame:
+                               include_actuals: bool = True,
+                               auto_decompose: bool = True) -> pd.DataFrame:
         """
         Compute SmartEstimates for all company-periods in the dataset.
 
         Parameters:
             forecasts_df: Preprocessed I/B/E/S data from preprocess_ibes_data()
             include_actuals: If True, join realized EPS for evaluation
+            auto_decompose: If True, automatically decompose forecasts into
+                           industry and company components (required for skill-based weighting)
 
         Returns:
             DataFrame with SmartEstimates, consensus, and metadata
@@ -208,6 +211,10 @@ class RealDataSmartEstimateEngine:
         print("\n" + "=" * 80)
         print("CONSTRUCTING SMARTESTIMATES")
         print("=" * 80)
+
+        # Auto-decompose if needed (critical for skill-based weighting!)
+        if auto_decompose:
+            forecasts_df = self._apply_decomposition(forecasts_df)
 
         # Use sequential processing for temporal consistency
         results_df = self.builder.construct_smartestimates_sequential(forecasts_df, verbose=True)
@@ -226,6 +233,46 @@ class RealDataSmartEstimateEngine:
             results_df = self._compute_errors(results_df)
 
         return results_df
+
+    def _apply_decomposition(self, forecasts_df: pd.DataFrame) -> pd.DataFrame:
+        """
+        Apply automatic forecast decomposition.
+
+        This is CRITICAL for the algorithm to work properly!
+        Without decomposition, all analysts get equal weights.
+        """
+        from .decomposition import ForecastDecomposer, validate_decomposition
+
+        # Check if already decomposed
+        has_components = ('forecast_industry_component' in forecasts_df.columns and
+                         'forecast_company_component' in forecasts_df.columns)
+
+        if has_components:
+            print("✓ Data already decomposed - using existing components")
+            return forecasts_df
+
+        # Apply decomposition
+        decomposed_df = ForecastDecomposer.add_decomposition(
+            forecasts_df,
+            forecast_col='forecast_eps',
+            actual_col='realized_eps',
+            industry_col='industry',
+            company_col='company',
+            period_col='period',
+            analyst_col='analyst_id',
+            verbose=True
+        )
+
+        # Validate
+        is_valid, diagnostics = validate_decomposition(
+            decomposed_df,
+            forecast_col='forecast_eps'
+        )
+
+        if not is_valid:
+            raise ValueError(f"Decomposition failed validation: {diagnostics}")
+
+        return decomposed_df
 
     def _compute_errors(self, results_df: pd.DataFrame) -> pd.DataFrame:
         """Compute forecast errors for evaluation."""
