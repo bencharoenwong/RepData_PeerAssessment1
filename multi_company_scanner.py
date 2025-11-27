@@ -87,9 +87,36 @@ class MultiCompanyScanner:
         text_lower = text.lower()
 
         keywords = {
-            'geographic_revenue': ['geographic revenue', 'customer location', 'billing location', 'ship-to location'],
-            'methodology_change': ['changed our methodology', 'changed our presentation', 'changed our accounting'],
-            'previously': ['previously, revenue', 'previously, we', 'previously reported'],
+            'geographic_revenue': [
+                # Core terms
+                'geographic revenue', 'revenue by geographic', 'geographic distribution of revenue',
+                # Regional variations
+                'regional revenue', 'revenue by region', 'regional distribution',
+                'territorial revenue', 'revenue by territory',
+                # International/domestic
+                'international revenue', 'domestic revenue', 'revenue from external customers',
+                # Location methodology terms
+                'customer location', 'billing location', 'ship-to location', 'shipping location',
+                'customer headquarters', 'customer domicile', 'invoicing location',
+                'point of sale', 'destination', 'origin',
+                # Attribution language
+                'revenue attribution', 'revenue attributed to', 'attributed to individual countries',
+                'revenue designated based on', 'revenue determined by',
+                # Basis/methodology statements
+                'based on the location', 'based upon the location', 'determined by location',
+                'designated based on', 'classified based on'
+            ],
+            'methodology_change': [
+                'changed our methodology', 'changed our presentation', 'changed our accounting',
+                'changed the basis', 'modified our methodology', 'revised our methodology',
+                'updated our methodology', 'revised our presentation', 'updated our presentation',
+                'change in presentation', 'change in methodology', 'change in the basis'
+            ],
+            'previously': [
+                'previously, revenue', 'previously, we', 'previously reported',
+                'previously, geographic revenue', 'previously, revenue by geographic',
+                'prior to', 'previously disclosed', 'previously presented'
+            ],
             'reclassification': ['reclassified', 'reclassification'],
             'restatement': ['restated', 'restatement', 'recast'],
             'segment_change': ['segment reorganization', 'reportable segments', 'segment reporting']
